@@ -22,6 +22,13 @@ vram = subprocess.run(
     text=True
 )
 
+vramtotal = subprocess.run(
+    ["cat","/sys/class/drm/card1/device/mem_info_vram_total"],
+    capture_output=True,
+    text=True
+    
+)
+
 
 
 for x, y in temperature.items():
@@ -33,13 +40,14 @@ ram = psutil.virtual_memory()
 totalRAM = round(ram.total / (1024**3),2)
 usedRAM = round(ram.used / (1024 **3),2)
 VRAMusage = round(int(vram.stdout) / (1024 **3),2)
+VRAMtotal = round(int(vramtotal.stdout) / (1024 **3),2)
 
 
 print(f"CPU : {cpu}")
 print(f"TEMP : {temp}°")
 print(f"RAM USAGE: {ram.percent}%")
 print(f"RAM : {usedRAM}/{totalRAM}")
-print(f"VRAM : {VRAMusage} /  ")
+print(f"VRAM : {VRAMusage}GB / {VRAMtotal}GB ")
 
 
 
