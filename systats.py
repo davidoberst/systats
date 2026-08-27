@@ -12,6 +12,7 @@ import os
 import psutil
 import subprocess
 
+
 cpu = psutil.cpu_percent(interval=1)
 
 temperature = psutil.sensors_temperatures()
@@ -29,8 +30,6 @@ vramtotal = subprocess.run(
     
 )
 
-
-
 for x, y in temperature.items():
     for z in y[:len(y)-1]: #solo mostrar temperatura actual
         temp = z.current
@@ -42,12 +41,12 @@ usedRAM = round(ram.used / (1024 **3),2)
 VRAMusage = round(int(vram.stdout) / (1024 **3),2)
 VRAMtotal = round(int(vramtotal.stdout) / (1024 **3),2)
 
-
-print(f"CPU : {cpu}")
-print(f"TEMP : {temp}°")
+print(f"CPU : {cpu}%")
+print(f"TEMP : {temp}°C")
 print(f"RAM USAGE: {ram.percent}%")
 print(f"RAM : {usedRAM}/{totalRAM}")
-print(f"VRAM : {VRAMusage}GB / {VRAMtotal}GB ")
+print(f"VRAM : {VRAMusage}GB / {VRAMtotal}GB")
+
 
 
 
