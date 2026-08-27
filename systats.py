@@ -21,12 +21,14 @@ for x, y in temperature.items():
 
 ram = psutil.virtual_memory()
 totalRAM = round(ram.total / (1024**3),2)
-
-
+usedRAM = round(ram.used / (1024 **3),2)
 
 
 print(f"CPU : {cpu}")
 print(f"TEMP : {temp}°")
-print(f"RAM : {totalRAM}")
+print(f"RAM USAGE: {ram.percent}%")
+print(f"RAM : {usedRAM}/{totalRAM}")
+
+
 
 
