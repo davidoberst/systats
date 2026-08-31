@@ -1,1 +1,7 @@
 psutil
+speedtest
+
+GPU USAGE  : 37%
+VRAM       : 2.1 / 8 GB
+NETWORK    : ↓ 2.4 MB/s ↑ 0.3 MB/s
+DISK       : ↓ 15 MB/s ↑ 2 MB/s
